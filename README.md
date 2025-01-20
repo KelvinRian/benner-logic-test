@@ -16,7 +16,7 @@ um dos elementos pertencentes à essa cadeia integrará a coleção)
 
 ![image](https://github.com/user-attachments/assets/0987fab7-7431-4d10-b401-198f0f277f67)
 
-* Conectando dois elementos com conecções já existentes, gerando uma única conexão no final.
+* Conectando dois elementos com conexões já existentes, gerando uma única conexão no final.
 
 ![image](https://github.com/user-attachments/assets/0b212e03-e4e5-4cb9-acf9-6ed6c864bcff)
 
