@@ -44,8 +44,12 @@
 
             if (oneElementAlreadyConnected)
             {
-                ConcatIfElementsHaveConnections(ConnectionWithDestinyElement, ConenctionWithOriginElement);
-                AddElementIntoHisConnectedElementConnection(originElement, destinyElement, ConnectionWithDestinyElement, ConenctionWithOriginElement);
+                var bothElementsHaveConnections = ConenctionWithOriginElement != null && ConnectionWithDestinyElement != null;
+                
+                if (bothElementsHaveConnections)
+                    ConcatIfElementsAreNotConnectedWithEachOther(ConnectionWithDestinyElement, ConenctionWithOriginElement);
+                else
+                    AddElementToTheOthersConnection(originElement, destinyElement, ConnectionWithDestinyElement, ConenctionWithOriginElement);
             }
             else
             {
@@ -53,17 +57,14 @@
             }
         }
 
-        private void ConcatIfElementsHaveConnections(Connection? ConnectionWithDestinyElement, Connection? ConenctionWithOriginElement)
+        private void ConcatIfElementsAreNotConnectedWithEachOther(Connection? ConnectionWithDestinyElement, Connection? ConenctionWithOriginElement)
         {
-            var bothElementsHaveConnections = ConenctionWithOriginElement != null && ConnectionWithDestinyElement != null;
-            if (bothElementsHaveConnections)
-            {
-                var elementsAreInTheSameConnection = ConnectionWithDestinyElement == ConenctionWithOriginElement;
-                if (elementsAreInTheSameConnection)
-                    return;
+            var elementsAreInTheSameConnection = ConnectionWithDestinyElement == ConenctionWithOriginElement;
+            if (elementsAreInTheSameConnection)
+                return;
 
-                Concat(ConnectionWithDestinyElement, ConenctionWithOriginElement);
-            }
+            Concat(ConnectionWithDestinyElement, ConenctionWithOriginElement);
+
         }
 
         private void Concat(Connection ConnectionWithDestinyElement, Connection ConenctionWithOriginElement)
@@ -72,7 +73,7 @@
             Connections.Remove(ConnectionWithDestinyElement);
         }
 
-        private static void AddElementIntoHisConnectedElementConnection(Element? originElement, Element? destinyElement, Connection? ConnectionWithDestinyElement, Connection? ConenctionWithOriginElement)
+        private static void AddElementToTheOthersConnection(Element? originElement, Element? destinyElement, Connection? ConnectionWithDestinyElement, Connection? ConenctionWithOriginElement)
         {
             if (ConnectionWithDestinyElement != null)
             {
